@@ -1,5 +1,6 @@
 package com.example.comupnchuquirunaalvafinal;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -47,8 +48,9 @@ public class DuelistaFormulario extends AppCompatActivity {
 
                     @Override
                     public void onResponse(Call<Void> call, Response<Void> response) {
-                        Toast.makeText(MainActivity.this, "Cambios guardados exitosamente", Toast.LENGTH_SHORT).show();// Cerrar la actividad y regresar a la actividad anterior
-                    }
+                        Toast.makeText(DuelistaFormulario.this, "Cambios guardados exitosamente", Toast.LENGTH_SHORT).show();// Cerrar la actividad y regresar a la actividad anterior
+                        Intent intent =  new Intent(getApplicationContext(), MainActivity.class);
+                        startActivity(intent);                    }
 
                     @Override
                     public void onFailure(Call<Void> call, Throwable t) {
