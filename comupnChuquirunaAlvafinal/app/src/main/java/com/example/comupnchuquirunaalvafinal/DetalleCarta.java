@@ -22,10 +22,10 @@ public class DetalleCarta extends AppCompatActivity {
         setContentView(R.layout.activity_detalle);
 
         String nombreC = getIntent().getStringExtra("nombre");
-        int puntosAtaque = getIntent().getIntExtra("ataque", 0);
-        int puntosDefensa = getIntent().getIntExtra("defensa", 0);
-        int longitud = getIntent().getIntExtra("longitud", 0);
-        int latitud = getIntent().getIntExtra("latitud", 0);
+        double puntosAtaque = getIntent().getDoubleExtra("ataque", 0.0f);
+        double puntosDefensa = getIntent().getDoubleExtra("defensa", 0.0f);
+        double longitud = getIntent().getDoubleExtra("longitud", 0.0f);
+        double latitud = getIntent().getDoubleExtra("latitud", 0.0f);
         String url = getIntent().getStringExtra("url");
 
         tvNombreC = findViewById(R.id.tvNC);
