@@ -1,6 +1,9 @@
 package com.example.comupnchuquirunaalvafinal;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -12,6 +15,7 @@ public class DetalleCarta extends AppCompatActivity {
 
     TextView tvNombreC, tvAtaque, tvDefensa, tvLong, tvLat;
     ImageView imgCarta;
+    Button btnMapa;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -25,18 +29,15 @@ public class DetalleCarta extends AppCompatActivity {
         String url = getIntent().getStringExtra("url");
 
         tvNombreC = findViewById(R.id.tvNC);
-        tvNombreC.setText(nombreC);
-
         tvAtaque = findViewById(R.id.tvAC);
-        tvAtaque.setText(String.valueOf(puntosAtaque));
-
         tvDefensa = findViewById(R.id.tvDC);
-        tvDefensa.setText(String.valueOf(puntosDefensa));
-
         tvLong = findViewById(R.id.tvLonguitud);
-        tvLong.setText(String.valueOf(longitud));
-
         tvLat = findViewById(R.id.tvLatitude);
+
+        tvNombreC.setText(nombreC);
+        tvAtaque.setText(String.valueOf(puntosAtaque));
+        tvDefensa.setText(String.valueOf(puntosDefensa));
+        tvLong.setText(String.valueOf(longitud));
         tvLat.setText(String.valueOf(latitud));
 
         imgCarta = findViewById(R.id.imageView);
@@ -46,6 +47,15 @@ public class DetalleCarta extends AppCompatActivity {
                 .load(url)
                 .into(imgCarta);
 
-
+        btnMapa = findViewById(R.id.btnVerMapa);
+        btnMapa.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getApplicationContext(), MapsActivity.class);
+                intent.putExtra("latitud", latitud);
+                intent.putExtra("longitud", longitud);
+                startActivity(intent);
+            }
+        });
     }
 }

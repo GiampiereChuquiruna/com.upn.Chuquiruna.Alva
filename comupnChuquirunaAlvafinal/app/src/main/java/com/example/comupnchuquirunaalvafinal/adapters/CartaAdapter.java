@@ -41,10 +41,10 @@ public class CartaAdapter extends RecyclerView.Adapter<CartaAdapter.CartaViewHol
         Carta item = items.get(position);
         View view = holder.itemView;
 
-        TextView tvTipo = view.findViewById(R.id.tvCartaN);
-        tvTipo.setText(item.nombreC);
+        TextView tvNombre = view.findViewById(R.id.tvCartaN);
+        tvNombre.setText(item.nombreC);
 
-        tvTipo.setOnClickListener(new View.OnClickListener() {
+        tvNombre.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 // Crear un Intent para abrir el nuevo Activity
