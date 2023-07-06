@@ -29,6 +29,18 @@
             android:name=".ListaDuelista"
             android:exported="true">
         </activity>
+        <activity
+            android:name=".MainCartas"
+            android:exported="true">
+        </activity>
+        <activity
+            android:name=".CartaFomulario"
+            android:exported="true">
+        </activity>
+        <activity
+            android:name=".ListaCarta"
+            android:exported="true">
+        </activity>
 
         <activity
             android:name=".MainActivity"

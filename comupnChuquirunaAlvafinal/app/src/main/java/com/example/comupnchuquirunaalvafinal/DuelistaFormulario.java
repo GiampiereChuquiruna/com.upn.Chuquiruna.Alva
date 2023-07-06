@@ -40,6 +40,7 @@ public class DuelistaFormulario extends AppCompatActivity {
         btnSave.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                duelista.nombre = edtNombreD.getText().toString();
                 Retrofit retrofit = new Retrofit.Builder().baseUrl("https://64a6b3f2096b3f0fcc805e89.mockapi.io/")
                         .addConverterFactory(GsonConverterFactory.create())
                         .build();

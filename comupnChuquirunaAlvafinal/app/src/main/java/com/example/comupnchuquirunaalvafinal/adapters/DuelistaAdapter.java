@@ -44,6 +44,7 @@ public class DuelistaAdapter extends RecyclerView.Adapter<DuelistaAdapter.Duelis
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(view.getContext(), MainCartas.class);
+                intent.putExtra("name", items.get(position).getNombre());
                 intent.putExtra("id", items.get(position).getId());
                 view.getContext().startActivity(intent);
             }
