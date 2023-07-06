@@ -39,7 +39,7 @@ public class MainCartas extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent =  new Intent(getApplicationContext(), ListaCarta.class);
-                intent.putExtra("idCuenta", id);
+                intent.putExtra("idDuelista", id);
                 startActivity(intent);
             }
         });
