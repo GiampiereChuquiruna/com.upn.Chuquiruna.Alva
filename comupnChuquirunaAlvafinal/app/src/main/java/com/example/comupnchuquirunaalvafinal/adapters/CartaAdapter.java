@@ -11,6 +11,7 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.comupnchuquirunaalvafinal.DetalleCarta;
 import com.example.comupnchuquirunaalvafinal.MapsActivity;
 import com.example.comupnchuquirunaalvafinal.R;
 import com.example.comupnchuquirunaalvafinal.entities.Carta;
@@ -43,22 +44,15 @@ public class CartaAdapter extends RecyclerView.Adapter<CartaAdapter.CartaViewHol
         TextView tvTipo = view.findViewById(R.id.tvCartaN);
         tvTipo.setText(item.nombreC);
 
-        TextView tvAtaque = view.findViewById(R.id.tvAtaque);
-        tvAtaque.setText(String.valueOf(item.puntosAtaque));
-
-        TextView tvDefensa = view.findViewById(R.id.tvDefensa);
-        tvDefensa.setText(String.valueOf(item.puntosDefensa));
-
-
-        ImageView imgFoto = view.findViewById(R.id.imgCarta);
-        Picasso.get().load(item.urlImagen).into(imgFoto);
-
-        Button btnVerMapa = view.findViewById(R.id.btnVerMapa);
-        btnVerMapa.setOnClickListener(new View.OnClickListener() {
+        tvTipo.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 // Crear un Intent para abrir el nuevo Activity
-                Intent intent = new Intent(view.getContext(), MapsActivity.class);
+                Intent intent = new Intent(view.getContext(), DetalleCarta.class);
+                intent.putExtra("nombre", items.get(position).getNombreC());
+                intent.putExtra("ataque", items.get(position).getPuntosAtaque());
+                intent.putExtra("defensa", items.get(position).getPuntosDefensa());
+                intent.putExtra("url", items.get(position).getUrlImagen());
                 intent.putExtra("latitud", items.get(position).getLatitud());
                 intent.putExtra("longitud", items.get(position).getLonguitud());
                 view.getContext().startActivity(intent);
