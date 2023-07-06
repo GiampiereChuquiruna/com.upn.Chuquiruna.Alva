@@ -37,14 +37,13 @@ public class DuelistaAdapter extends RecyclerView.Adapter<DuelistaAdapter.Duelis
         Duelista item = items.get(position);
         View view = holder.itemView;
 
-        TextView tvNameDuelista = view.findViewById(R.id.tvNameDuelista);
+        TextView tvNameDuelista = view.findViewById(R.id.tvNombreDuelista);
         tvNameDuelista.setText(item.nombre);
 
         tvNameDuelista.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(view.getContext(), MainCartas.class);
-                intent.putExtra("nombre", items.get(position).getNombre());
                 intent.putExtra("id", items.get(position).getId());
                 view.getContext().startActivity(intent);
             }
@@ -53,7 +52,7 @@ public class DuelistaAdapter extends RecyclerView.Adapter<DuelistaAdapter.Duelis
 
     @Override
     public int getItemCount() {
-        return 0;
+        return items.size();
     }
     public class DuelistaViewHolder extends RecyclerView.ViewHolder {
 

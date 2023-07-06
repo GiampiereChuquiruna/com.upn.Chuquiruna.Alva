@@ -1,6 +1,7 @@
 package com.example.comupnchuquirunaalvafinal;
 
 import android.os.Bundle;
+import android.util.Log;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -37,7 +38,8 @@ public class ListaDuelista extends AppCompatActivity {
             @Override
             public void onResponse(Call<List<Duelista>> call, Response<List<Duelista>> response) {
                 List<Duelista> items = response.body();
-                rvListaDuelista = findViewById(R.id.rvListaDuelista);
+                Log.d("ListaDuelista", "Cantidad de items: " + items.size());
+                rvListaDuelista = findViewById(R.id.rvListaDulista);
                 rvListaDuelista.setLayoutManager(new LinearLayoutManager(getApplicationContext()));
                 rvListaDuelista.setAdapter(new DuelistaAdapter(items));
             }
